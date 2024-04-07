@@ -10,21 +10,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequestMapping("/users")
 public class UserController {
     @Autowired
     UserService userService;
 
     @GetMapping("/")
-    public String getDefault() {
-        return "Hello world!";
-    }
-
-    @GetMapping("/users")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/user/{id}")
+    @GetMapping("/{id}")
     public APIResponse<User> getUser(@PathVariable long id) {
         User user = userService.getUser(id);
         if (user == null) {
@@ -42,7 +38,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("/user/add")
+    @PostMapping("/add")
     public APIResponse<User> addUser(@RequestBody User user) {
         User newUser = userService.insertUser(user);
         if (newUser == null) {
@@ -60,7 +56,7 @@ public class UserController {
         }
     }
 
-    @PostMapping("/users/add")
+    @PostMapping("/addAll")
     public APIResponse<List<User>> addUser(@RequestBody List<User> users) {
         List<User> insertedUsers = userService.insertUsers(users);
         if (insertedUsers == null || insertedUsers.isEmpty()) {
@@ -77,7 +73,7 @@ public class UserController {
         );
     }
 
-    @PutMapping("/user/update")
+    @PutMapping("/update")
     public APIResponse<User> updateUser(@RequestBody User user) {
         User updatedUser = userService.updateUser(user);
         if (updatedUser == null) {
@@ -95,7 +91,7 @@ public class UserController {
         }
     }
 
-    @DeleteMapping("/user/remove/{id}")
+    @DeleteMapping("/remove/{id}")
     public APIResponse removeUser(@PathVariable long id) {
         boolean removalStatus = userService.deleteUserById(id);
         return removalStatus ? new APIResponse(ResponseStatus.SUCCESS, null, null)
