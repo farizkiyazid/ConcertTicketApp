@@ -1,4 +1,4 @@
-# Database Setup
+# Initial Setup
 
 Before running the Spring Boot application, you'll need to set up your MySQL database. Follow the steps below:
 
@@ -38,3 +38,16 @@ Before running the Spring Boot application, you'll need to set up your MySQL dat
         FOREIGN KEY (user_id) REFERENCES user(id)
     );
    ```
+3. **Configure application.properties:**
+   - Before running the application, make sure to configure the application.properties file according to your MySQL setup. 
+   - Open the src/main/resources/application.properties file. 
+   - Modify the following properties to match your MySQL configuration:
+   ```sql
+   spring.datasource.url=jdbc:mysql://localhost:3306/concert_ticketing_db
+   spring.datasource.username=your_mysql_username
+   spring.datasource.password=your_mysql_password
+   spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+   ```
+   Replace `your_mysql_username` and `your_mysql_password` with your MySQL username and password.
+   
+   Once you've completed these steps, you should be ready to run the Spring Boot application.
