@@ -1,10 +1,6 @@
 package com.example.concertticketapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -20,8 +16,11 @@ public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "concert_id")
     private Long concertId;
+    @Column(name = "user_id")
     private Long userId;
+    @Column(name = "purchase_time")
     private LocalDateTime purchaseTime;
     private int quantity;
 }

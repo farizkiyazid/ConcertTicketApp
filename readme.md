@@ -32,7 +32,7 @@ Before running the Spring Boot application, you'll need to set up your MySQL dat
         id BIGINT AUTO_INCREMENT PRIMARY KEY,
         concert_id BIGINT,
         user_id BIGINT,
-        purchaseTime DATETIME,
+        purchase_time DATETIME,
         quantity INT,
         FOREIGN KEY (concert_id) REFERENCES concerts(id),
         FOREIGN KEY (user_id) REFERENCES users(id)
