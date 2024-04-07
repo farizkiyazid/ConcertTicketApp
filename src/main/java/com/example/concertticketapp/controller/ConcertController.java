@@ -16,7 +16,7 @@ public class ConcertController {
     @Autowired
     private ConcertService concertService;
 
-    @GetMapping("/")
+    @GetMapping()
     public List<Concert> getAllConcerts() {
         return concertService.getAllConcerts();
     }
@@ -56,6 +56,11 @@ public class ConcertController {
         boolean removalStatus = concertService.deleteConcertById(id);
         return removalStatus ? new APIResponse(ResponseStatus.SUCCESS, null, null)
               : new APIResponse(ResponseStatus.ERROR, "Concert with ID " + id + " not found", null);
+    }
+
+    @GetMapping("/available")
+    public List<Concert> getAllAvailableConcerts() {
+        return concertService.getAvailableConcerts();
     }
 }
 

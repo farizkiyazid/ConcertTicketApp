@@ -5,6 +5,7 @@ import com.example.concertticketapp.repository.ConcertRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -50,6 +51,11 @@ public class ConcertService {
         }
         concertRepository.deleteById(id);
         return true;
+    }
+
+    public List<Concert> getAvailableConcerts() {
+        LocalDateTime currentDate = LocalDateTime.now();
+        return concertRepository.findAvailableConcerts(currentDate);
     }
 }
 
