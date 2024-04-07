@@ -30,7 +30,7 @@ public class UserController {
         if (user == null) {
             return new APIResponse<>(
                   com.example.concertticketapp.model.ResponseStatus.ERROR,
-                  "User doesn't exist",
+                  "User with ID " + id + " doesn't exist",
                   null
             );
         } else {
