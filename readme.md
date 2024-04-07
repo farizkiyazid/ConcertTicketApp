@@ -1,3 +1,8 @@
+# ConcertTicketApp
+In this Readme, I provide you Initial setup to get started before running this app, and also the API Documentation for the APIs.
+
+Design Document link : https://docs.google.com/document/d/1rDBveR5tTGcPTnPmwBIQGB9qm0_hHsswnPR9VoXx_9s
+
 # Initial Setup
 
 Before running the Spring Boot application, you'll need to set up your MySQL database. Follow the steps below:
